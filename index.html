@@ -3,85 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quiz Lei 10.639/2003 — Consciência Negra</title>
+<title>Quiz — Lei 10.639/2003 & André Rebouças</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
-body{background:#0f172a;color:#f8fafc;padding:12px}
-.w{max-width:980px;margin:0 auto}
-header,.c{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:13px;margin-bottom:12px}
+body{background:radial-gradient(circle at 15% 10%,#1e1b4b,#0b0f19 55%,#06080f);color:#f8fafc;min-height:100vh;padding:12px}
+.w{max-width:1000px;margin:0 auto}
+.bar{height:5px;border-radius:9px;background:linear-gradient(90deg,#dc2626,#f59e0b,#10b981,#f59e0b,#dc2626);margin-bottom:10px}
+header,.c{background:rgba(19,27,46,.95);border:1px solid #2d3b55;border-radius:14px;padding:13px;margin-bottom:11px;box-shadow:0 8px 22px rgba(0,0,0,.35)}
 header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px}
-h1{font-size:1.05rem;color:#fbbf24}.sm{font-size:.75rem;color:#94a3b8}
-button{cursor:pointer;border:none;border-radius:8px;font-weight:700;padding:8px 12px;font-size:.85rem}
-.gold{background:#f59e0b;color:#0f172a}.dark{background:#334155;color:#fff}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:8px 0}
-.ba{background:rgba(59,130,246,.14);border:1px solid #3b82f6;border-radius:10px;padding:9px}
-.bb{background:rgba(168,85,247,.14);border:1px solid #a855f7;border-radius:10px;padding:9px}
+.br{display:flex;align-items:center;gap:9px}
+.lg{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#f59e0b,#d97706);display:flex;align-items:center;justify-content:center;font-size:18px}
+h1{font-size:1.05rem;color:#fbbf24}.sm{font-size:.74rem;color:#94a3b8}
+button{cursor:pointer;border:none;border-radius:8px;font-weight:700;padding:8px 12px;font-size:.84rem;transition:.15s}
+button:active{transform:scale(.97)}
+.gold{background:linear-gradient(135deg,#f59e0b,#d97706);color:#090d16}
+.dark{background:#273449;color:#f8fafc;border:1px solid #3b4c6b}
+.dark:hover{border-color:#fbbf24;color:#fde68a}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px;margin-top:8px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px;margin:9px 0}
+.ba{background:rgba(16,185,129,.12);border:1px solid #10b981;border-radius:10px;padding:9px}
+.bb{background:rgba(245,158,11,.12);border:1px solid #f59e0b;border-radius:10px;padding:9px}
 label{display:block;font-size:.72rem;color:#cbd5e1;margin-bottom:2px;font-weight:600}
-input,select{width:100%;padding:6px;border-radius:6px;border:1px solid #475569;background:#0f172a;color:#fff;margin-bottom:5px;font-size:.82rem}
-.mg{display:grid;grid-template-columns:1fr 1fr;gap:4px}.mg input{margin:0;font-size:.75rem;padding:4px}
-.arena{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;align-items:start}
-@media(max-width:760px){.arena{grid-template-columns:1fr}}
-.ban{padding:8px 10px;border-radius:9px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;font-weight:700}
-.ban-a{background:rgba(59,130,246,.2);border:2px solid #3b82f6}.ban-b{background:rgba(168,85,247,.2);border:2px solid #a855f7}
-.pill{background:#0f172a;padding:3px 8px;border-radius:99px;font-size:.72rem;border:1px solid #334155}
-.qm{display:flex;justify-content:space-between;font-size:.74rem;color:#fbbf24;font-weight:700;margin-bottom:5px}
+input,select{width:100%;padding:5px 7px;border-radius:7px;border:1px solid #3b4c6b;background:#0b0f19;color:#fff;margin-bottom:5px;font-size:.82rem}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:4px}.mg input{margin:0;font-size:.74rem;padding:4px 6px}
+.arena{display:grid;grid-template-columns:1.3fr 1fr;gap:11px;align-items:start}
+@media(max-width:780px){.arena{grid-template-columns:1fr}}
+.prog{height:6px;background:#0b0f19;border-radius:9px;overflow:hidden;margin-bottom:8px;border:1px solid #2d3b55}
+.prog>div{height:100%;background:linear-gradient(90deg,#10b981,#f59e0b);transition:.3s}
+.ban{padding:8px 11px;border-radius:10px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px;font-weight:700}
+.ban-a{background:rgba(16,185,129,.18);border:2px solid #10b981}.ban-b{background:rgba(245,158,11,.18);border:2px solid #f59e0b}
+.pill{background:#0b0f19;padding:3px 8px;border-radius:99px;font-size:.72rem;border:1px solid #3b4c6b}
+.qm{display:flex;justify-content:space-between;font-size:.73rem;color:#fbbf24;font-weight:700;margin-bottom:4px;text-transform:uppercase}
 .qt{font-size:1.02rem;font-weight:700;margin-bottom:9px;line-height:1.35}
 .opts{display:grid;gap:6px}
-.opt{width:100%;text-align:left;background:#263349;color:#fff;border:1px solid #475569;padding:8px 10px;border-radius:8px;display:flex;align-items:center;gap:8px}
-.let{width:22px;height:22px;border-radius:5px;background:#0f172a;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.opt{width:100%;text-align:left;background:#1e293b;color:#fff;border:1px solid #3b4c6b;padding:9px 10px;border-radius:9px;display:flex;align-items:center;gap:8px;font-size:.87rem}
+.opt:hover:not(:disabled){border-color:#fbbf24;background:#26354d;transform:translateX(3px)}
+.let{width:23px;height:23px;border-radius:6px;background:#0b0f19;color:#fbbf24;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
 .opt.ok{background:rgba(16,185,129,.25);border-color:#10b981}.opt.ok .let{background:#10b981;color:#052e16}
-.opt.no{background:rgba(244,63,94,.22);border-color:#f43f5e}.opt.no .let{background:#f43f5e;color:#fff}
-.hint{margin-top:7px;padding:7px;border-radius:7px;background:rgba(245,158,11,.14);border:1px dashed #f59e0b;color:#fde68a;font-size:.78rem}
-.fb{margin-top:7px;padding:8px;border-radius:7px;background:#0f172a;border-left:4px solid #f59e0b;font-size:.8rem}
-table{width:100%;border-collapse:collapse;margin:6px 0 9px;font-size:.77rem}
-th,td{padding:5px 3px;text-align:center;border-bottom:1px solid #334155}
-th{background:#0f172a;color:#94a3b8;font-size:.65rem}
+.opt.no{background:rgba(244,63,94,.22);border-color:#f43f5e}.opt.no .let{background:#f43f5e}
+.hint{margin-top:7px;padding:7px 9px;border-radius:8px;background:rgba(245,158,11,.14);border:1px dashed #f59e0b;color:#fde68a;font-size:.78rem}
+.fb{margin-top:8px;padding:9px;border-radius:8px;background:#0b0f19;border-left:4px solid #f59e0b;font-size:.81rem;line-height:1.36}
+table{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:.78rem}
+th,td{padding:5px 3px;text-align:center;border-bottom:1px solid #2d3b55}
+th{background:#0b0f19;color:#94a3b8;font-size:.64rem;text-transform:uppercase}
 td:first-child,th:first-child{text-align:left;padding-left:5px}
-.candy{background:linear-gradient(135deg,rgba(236,72,153,.18),rgba(245,158,11,.15));border:1px solid #ec4899;border-radius:9px;padding:8px}
-.candy h4{color:#fbcfe8;font-size:.8rem;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.cb{background:rgba(15,23,42,.85);border:1px solid #334155;border-radius:7px;padding:6px}
+.candy{background:linear-gradient(135deg,rgba(236,72,153,.18),rgba(245,158,11,.15));border:1px solid #ec4899;border-radius:10px;padding:8px}
+.candy h4{color:#fbcfe8;font-size:.82rem;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.cb{background:rgba(11,15,25,.85);border:1px solid #3b4c6b;border-radius:7px;padding:6px}
 .val{font-size:.9rem;font-weight:800;color:#f9a8d4;margin:2px 0}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
-.tag{background:#0f172a;border:1px solid #334155;padding:2px 6px;border-radius:5px;font-size:.7rem}
-.tag.act{border-color:#fbbf24;background:rgba(245,158,11,.2);color:#fde68a;font-weight:700}
-.win{text-align:center;padding:12px;background:rgba(245,158,11,.16);border:1px solid #fbbf24;border-radius:10px;margin-bottom:10px}
+.tag{background:#0b0f19;border:1px solid #3b4c6b;padding:2px 6px;border-radius:5px;font-size:.69rem}
+.tag.act{border-color:#fbbf24;background:rgba(245,158,11,.22);color:#fde68a;font-weight:700}
+.win{text-align:center;padding:14px;background:linear-gradient(135deg,rgba(245,158,11,.22),rgba(16,185,129,.18));border:1px solid #fbbf24;border-radius:11px;margin-bottom:9px}
 .hidden{display:none!important}
 </style>
 </head>
 <body>
 <div class="w">
+<div class="bar"></div>
 <header>
-  <div><h1>✊🏿 Quiz: Lei nº 10.639/2003 & Consciência Negra</h1><div class="sm">Ensino Fundamental (6º, 7º e 8º Ano) • Disputa em Equipes</div></div>
-  <button class="dark" onclick="resetGame()">⚙️ Equipes</button>
+  <div class="br">
+    <div class="lg">✊🏿</div>
+    <div>
+      <h1>Desafio Interativo: Lei nº 10.639/2003</h1>
+      <div class="sm">Consciência Negra, Resistência & Legado de André Rebouças</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:6px">
+    <button class="dark" id="btnSnd" onclick="togSnd()">🔊 Som</button>
+    <button class="dark" onclick="resetGame()">⚙️ Equipes</button>
+  </div>
 </header>
 
 <section id="scrSetup" class="c">
-  <h2>⚙️ Configurar 2 Grupos (4 a 6 Integrantes) e Balas 🍬</h2>
+  <h2>⚙️ Configurar Grupos (4 a 6 Integrantes) e Premiação 🍬</h2>
   <div class="g4">
     <div><label>Integrantes/Grupo</label><select id="tSize" onchange="drawInputs()"><option value="4">4 por grupo</option><option value="5" selected>5 por grupo</option><option value="6">6 por grupo</option></select></div>
-    <div><label>Perguntas</label><select id="qTotal"><option value="8">8 (4 cada)</option><option value="10" selected>10 (5 cada)</option></select></div>
+    <div><label>Rodadas</label><select id="qTotal"><option value="8">8 perguntas</option><option value="10" selected>10 perguntas</option></select></div>
     <div><label>🍬 Balas/aluno (1º)</label><input type="number" id="cWin" min="1" max="20" value="3"></div>
     <div><label>🍬 Balas/aluno (2º)</label><input type="number" id="cRun" min="0" max="10" value="1"></div>
   </div>
   <div class="g2">
-    <div class="ba"><label>Grupo 1</label><input id="nameA" value="Equipe Quilombo"><label>Integrantes</label><div class="mg" id="memA"></div></div>
-    <div class="bb"><label>Grupo 2</label><input id="nameB" value="Equipe Palmares"><label>Integrantes</label><div class="mg" id="memB"></div></div>
+    <div class="ba"><label>Grupo 1</label><input id="nameA" value="Equipe Quilombo"><label>Integrantes (rodízio)</label><div class="mg" id="memA"></div></div>
+    <div class="bb"><label>Grupo 2</label><input id="nameB" value="Equipe Rebouças"><label>Integrantes (rodízio)</label><div class="mg" id="memB"></div></div>
   </div>
-  <div style="margin-top:8px;text-align:right"><button class="gold" onclick="start()">▶️ Começar!</button></div>
+  <div style="margin-top:8px;text-align:right"><button class="gold" onclick="start()">▶️ Iniciar Desafio!</button></div>
 </section>
 
 <section id="scrGame" class="arena hidden">
   <div class="c">
+    <div class="prog"><div id="pBar" style="width:10%"></div></div>
     <div id="turnBar" class="ban ban-a">
-      <div><div style="font-size:.64rem;opacity:.85">VEZ DO GRUPO:</div><div id="turnTeam">Equipe Quilombo</div></div>
+      <div><div style="font-size:.64rem;opacity:.85">VEZ DO GRUPO:</div><div id="turnTeam" style="font-size:.96rem">Equipe Quilombo</div></div>
       <div class="pill" id="turnPlayer">🎤 Aluno A1</div>
     </div>
     <div class="qm"><span id="qCount">Pergunta 1 de 10</span><span id="qTopic">Lei 10.639/2003</span></div>
     <div class="qt" id="qText"></div>
     <div class="opts" id="optsBox"></div>
-    <div style="margin-top:8px;display:flex;justify-content:space-between;gap:8px">
+    <div style="margin-top:8px;display:flex;justify-content:space-between;gap:7px">
       <button class="dark" id="btnHint" onclick="showHint()">💡 Dica</button>
       <button class="gold hidden" id="btnNext" onclick="next()">Próxima ➡️</button>
     </div>
@@ -101,7 +121,7 @@ td:first-child,th:first-child{text-align:left;padding-left:5px}
 </section>
 
 <section id="scrWin" class="c hidden">
-  <div class="win"><div style="font-size:1.7rem">🏆🎉</div><h2 id="winTitle" style="color:#fbbf24">Vencedor!</h2><p id="winSub" class="sm"></p></div>
+  <div class="win"><div style="font-size:1.9rem">🏆🎉</div><h2 id="winTitle" style="color:#fbbf24;font-size:1.4rem">Vencedor!</h2><p id="winSub" class="sm" style="margin-top:3px"></p></div>
   <h3>📊 Estatística Final</h3>
   <table><thead><tr><th>Posição & Grupo</th><th>Pontos</th><th>Acertos</th><th>Aproveit.</th><th>Combo</th></tr></thead><tbody id="finStat"></tbody></table>
   <div class="candy" style="margin-bottom:8px">
@@ -113,64 +133,67 @@ td:first-child,th:first-child{text-align:left;padding-left:5px}
 </div>
 <script>
 const QS=[
-{t:"Lei 10.639/2003",q:"O que a Lei 10.639/2003 tornou obrigatório nas escolas do Brasil?",o:["História e Cultura Afro-Brasileira e Africana","Apenas aulas de futebol","Estudar somente a Europa","Prova de matemática"],a:0,h:"Alterou a LDB para valorizar as raízes africanas.",f:"Escolas públicas e privadas devem ensinar História da África e Cultura Afro-Brasileira."},
-{t:"Calendário",q:"Qual data a Lei 10.639/2003 incluiu no calendário escolar?",o:["7 de setembro","20 de novembro — Dia da Consciência Negra","21 de abril","15 de novembro"],a:1,h:"Lembra Zumbi dos Palmares e a resistência negra.",f:"O art. 79-B da LDB incluiu o 20 de novembro no calendário escolar."},
-{t:"Disciplinas",q:"Em quais matérias a Lei 10.639/2003 dá destaque especial?",o:["Química e Física","Artes, Literatura e História do Brasil","Apenas Informática","Educação Física"],a:1,h:"Matérias ligadas à arte, livros e passado do país.",f:"Todo o currículo participa, com destaque para Artes, Literatura e História Brasileiras."},
-{t:"Resistência",q:"O que foram os Quilombos na época da escravidão?",o:["Navios negreiros","Comunidades livres criadas por negros que fugiam da escravidão","Prisões nas fazendas","Escolas das capitais"],a:1,h:"O mais famoso foi o Quilombo dos Palmares.",f:"Eram territórios de liberdade e resistência. Palmares resistiu por quase 100 anos!"},
-{t:"Líderes",q:"Quem foram Zumbi e Dandara dos Palmares?",o:["Governadores de Portugal","Líderes da resistência negra no Quilombo dos Palmares","Inventores do rádio","Navegadores espanhóis"],a:1,h:"Comandaram a luta pela liberdade em Palmares.",f:"Zumbi e Dandara lideraram Palmares e são símbolos de liberdade."},
-{t:"África",q:"Como era a África antes da chegada dos europeus?",o:["Não tinha cidades","Tinha grandes reinos ricos e universidades, como Mali e Congo","Era desabitada","Tinha só uma aldeia"],a:1,h:"Timbuktu, no Império do Mali, teve biblioteca famosa.",f:"A África tinha reinos poderosos como Mali, Songhai, Benin e Congo."},
-{t:"Idioma",q:"Quais palavras usadas no Brasil têm origem africana?",o:["Cafuné, moleque, caçula e quitanda","Mouse, internet e delete","Abajur, croissant e garçom","Pizza, piano e maestro"],a:0,h:"Palavras vindas das línguas Banto e Iorubá.",f:"Palavras como cafuné, dendê, samba e caçula vieram das línguas africanas."},
-{t:"Cultura",q:"Qual expressão afro-brasileira mistura luta, dança e música?",o:["Balé clássico","Capoeira","Valsa","Esgrima"],a:1,h:"Acompanhada pelo som do berimbau.",f:"Criada no Brasil por africanos escravizados, a Capoeira é Patrimônio da UNESCO."},
-{t:"Abolição",q:"Sobre o fim da escravidão em 13/05/1888, o que a História mostra?",o:["Foi presente sem luta","Foi conquista da pressão abolicionista, fugas, quilombos e resistência negra","Aconteceu em 1500","Deu terras a todos"],a:1,h:"Luiz Gama e milhões de negros lutaram antes de 1888.",f:"A Lei Áurea foi resultado da resistência negra e da campanha abolicionista."},
-{t:"Cidadania",q:"Pela Constituição Brasileira, praticar racismo é:",o:["Brincadeira sem punição","Crime inafiançável e imprescritível","Permitido na internet","Infração leve"],a:1,h:"A lei pune o racismo com rigor máximo.",f:"No Brasil, racismo é crime inafiançável e imprescritível."}
+{t:"Lei 10.639/2003",q:"O que a Lei nº 10.639/2003 tornou obrigatório nas escolas do Brasil?",o:["Ensino de História e Cultura Afro-Brasileira e Africana","Apenas aulas de futebol","Estudar somente a Europa","Prova nacional de matemática"],a:0,h:"Alterou a LDB para valorizar as raízes africanas.",f:"Escolas públicas e particulares devem ensinar História da África e Cultura Afro-Brasileira."},
+{t:"Calendário Escolar",q:"Qual data a Lei nº 10.639/2003 incluiu no calendário escolar?",o:["7 de setembro — Independência","20 de novembro — Dia Nacional da Consciência Negra","21 de abril — Tiradentes","15 de novembro — República"],a:1,h:"Lembra Zumbi dos Palmares e a resistência negra.",f:"O art. 79-B da LDB incluiu 20 de novembro como Dia Nacional da Consciência Negra."},
+{t:"Matérias Escolares",q:"Pela Lei nº 10.639/2003, em quais matérias o tema ganha destaque especial?",o:["Química e Física","Educação Artística, Literatura e História do Brasil","Apenas Informática","Somente Educação Física"],a:1,h:"Matérias ligadas às artes, aos livros e ao passado do Brasil.",f:"Todo o currículo participa, com destaque para Artes, Literatura e História Brasileiras."},
+{t:"André Rebouças",q:"Quem foi André Rebouças na história do Brasil?",o:["Engenheiro, professor e abolicionista negro que lutou pelo fim da escravidão","Governador enviado por Portugal","Navegador espanhol","Pintor francês"],a:0,h:"Um dos intelectuais negros mais respeitados do Império.",f:"André Rebouças foi engenheiro brilhante, professor da Escola Politécnica e líder abolicionista."},
+{t:"Aliança pela Abolição",q:"Como André Rebouças ajudou a conquistar a Lei Áurea junto à Princesa Isabel?",o:["Era contra a abolição","Usou seu prestígio na Corte para articular o fim imediato da escravidão","Nunca falou com a princesa","Pediu para adiar por 50 anos"],a:1,h:"Levava a voz do movimento abolicionista para dentro do palácio.",f:"A articulação política de Rebouças com a Princesa Isabel foi decisiva para vencer ministros escravistas em 1888."},
+{t:"Democracia Rural",q:"Além de acabar com a escravidão, o que André Rebouças defendia para os libertos?",o:["Voltar a trabalhar sem salário","Terra, educação e trabalho digno (Democracia Rural)","Proibição de estudar","Saída obrigatória do país"],a:1,h:"Liberdade sem oportunidades não bastava.",f:"Rebouças propôs a Democracia Rural (terra e escola para os libertos), mas fazendeiros barraram o projeto."},
+{t:"Verdade Histórica",q:"Sobre o 13 de maio de 1888 (Lei Áurea), o que a Lei 10.639 mostra?",o:["Foi um presente dado sem luta","Foi conquista da resistência negra, quilombos e abolicionistas","Aconteceu antes de 1500","Acabou com todo o racismo"],a:1,h:"Milhões de pessoas negras resistiram antes de 1888.",f:"A abolição foi conquista da pressão popular e de líderes como Rebouças e Luiz Gama, não um favor."},
+{t:"Quilombos",q:"O que foram os Quilombos, como o de Palmares liderado por Zumbi e Dandara?",o:["Navios negreiros","Comunidades livres de resistência criadas por negros que fugiam da escravidão","Prisões nas fazendas","Escolas particulares"],a:1,h:"Territórios de liberdade e organização comunitária.",f:"Os quilombos enfrentaram a escravidão por séculos; Palmares resistiu por quase 100 anos!"},
+{t:"História da África",q:"Antes da chegada dos europeus, como era o continente africano?",o:["Não havia cidades nem leis","Possuía grandes reinos ricos, comércio e universidades, como Mali e Congo","Era totalmente desabitado","Tinha apenas uma aldeia"],a:1,h:"A história negra não começou na escravidão.",f:"Reinos como Mali, Songhai, Benin e Congo tinham ciência, arquitetura e universidades como Timbuktu."},
+{t:"Objetivo da Lei",q:"Qual é o principal objetivo de estudar a Lei nº 10.639/2003 na escola?",o:["Decorar datas antigas","Combater o racismo, valorizar a cultura afro-brasileira e gerar respeito","Separar os alunos","Substituir as provas"],a:1,h:"Conhecer a história ajuda a construir uma sociedade mais justa.",f:"A Lei 10.639/2003 promove igualdade, autoestima e reconhecimento da contribuição negra no Brasil."}
 ];
-const TIE={t:"⚡ Desempate",q:"Em que ano foi sancionada a Lei nº 10.639/2003?",o:["1988","2003","2015","1500"],a:1,h:"O ano está no próprio número da lei!",f:"A Lei nº 10.639 foi sancionada em janeiro de 2003!"};
-let S={size:5,tot:10,cw:3,cr:1,teams:[],qs:[],idx:0,turn:0,done:false,tie:false};
+const TIE={t:"⚡ Desempate",q:"Em que ano foi sancionada a Lei nº 10.639 (História Afro-Brasileira nas escolas)?",o:["1988","2003","2015","1500"],a:1,h:"O ano está no próprio número da lei!",f:"A Lei nº 10.639 foi sancionada em janeiro de 2003!"};
+let S={size:5,tot:10,cw:3,cr:1,teams:[],qs:[],idx:0,turn:0,done:false,tie:false,snd:true};
 const $=id=>document.getElementById(id);
-function drawInputs(){const n=+$("tSize").value;["A","B"].forEach(k=>{const el=$("mem"+k);el.innerHTML="";for(let i=1;i<=n;i++)el.innerHTML+=`<input id="m${k}${i}" value="Aluno ${k}${i}">`;});}
+function beep(ok){if(!S.snd)return;try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?660:190;g.gain.setValueAtTime(.15,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.25);o.start();o.stop(c.currentTime+.25)}catch(e){}}
+function togSnd(){S.snd=!S.snd;$("btnSnd").textContent=S.snd?"🔊 Som":"🔇 Mudo"}
+function drawInputs(){const n=+$("tSize").value;["A","B"].forEach(k=>{const el=$("mem"+k);el.innerHTML="";for(let i=1;i<=n;i++)el.innerHTML+=`<input id="m${k}${i}" value="Aluno ${k}${i}">`})}
 function start(){
 const n=+$("tSize").value,tot=+$("qTotal").value;
-S={size:n,tot:tot,cw:Math.max(0,+$("cWin").value||3),cr:Math.max(0,+$("cRun").value||1),
-teams:["A","B"].map((k,i)=>({name:$("name"+k).value.trim()||(i?"Equipe Palmares":"Equipe Quilombo"),cls:i?"ban-b":"ban-a",col:i?"#a855f7":"#3b82f6",pts:0,ok:0,ans:0,str:0,max:0,mi:0,m:Array.from({length:n},(_,j)=>($("m"+k+(j+1))?.value||"").trim()||`Aluno ${k}${j+1}`)})),
+S={...S,size:n,tot:tot,cw:Math.max(0,+$("cWin").value||3),cr:Math.max(0,+$("cRun").value||1),
+teams:["A","B"].map((k,i)=>({name:$("name"+k).value.trim()||(i?"Equipe Rebouças":"Equipe Quilombo"),cls:i?"ban-b":"ban-a",col:i?"#f59e0b":"#10b981",pts:0,ok:0,ans:0,str:0,max:0,mi:0,m:Array.from({length:n},(_,j)=>($("m"+k+(j+1))?.value||"").trim()||`Aluno ${k}${j+1}`)})),
 qs:[...QS].sort(()=>Math.random()-.5).slice(0,tot),idx:0,turn:0,done:false,tie:false};
-$("scrSetup").classList.add("hidden");$("scrWin").classList.add("hidden");$("scrGame").classList.remove("hidden");renderQ();updateUI();}
-function resetGame(){$("scrGame").classList.add("hidden");$("scrWin").classList.add("hidden");$("scrSetup").classList.remove("hidden");}
+$("scrSetup").classList.add("hidden");$("scrWin").classList.add("hidden");$("scrGame").classList.remove("hidden");renderQ();updateUI()}
+function resetGame(){$("scrGame").classList.add("hidden");$("scrWin").classList.add("hidden");$("scrSetup").classList.remove("hidden")}
 function renderQ(){
 S.done=false;const q=S.tie?TIE:S.qs[S.idx],t=S.teams[S.turn];
-$("turnBar").className="ban "+t.cls;$("turnTeam").textContent=t.name;$("turnPlayer").textContent="🎤 Vez: "+t.m[t.mi%t.m.length];
+$("pBar").style.width=(S.tie?100:Math.round((S.idx+1)/S.tot*100))+"%";
+$("turnBar").className="ban "+t.cls;$("turnTeam").textContent=t.name;$("turnPlayer").textContent="🎤 Vez de: "+t.m[t.mi%t.m.length];
 $("qCount").textContent=S.tie?"⚡ DESEMPATE":`Pergunta ${S.idx+1} de ${S.tot}`;$("qTopic").textContent=q.t;$("qText").textContent=q.q;
 const box=$("optsBox");box.innerHTML="";
-q.o.forEach((txt,i)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<span class="let">${"ABCD"[i]}</span><span>${txt}</span>`;b.onclick=()=>pick(i);box.appendChild(b);});
-$("hintBox").classList.add("hidden");$("fbBox").classList.add("hidden");$("btnNext").classList.add("hidden");$("btnHint").disabled=false;}
-function showHint(){const q=S.tie?TIE:S.qs[S.idx];$("hintBox").textContent="💡 Dica: "+q.h;$("hintBox").classList.remove("hidden");$("btnHint").disabled=true;}
+q.o.forEach((txt,i)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<span class="let">${"ABCD"[i]}</span><span>${txt}</span>`;b.onclick=()=>pick(i);box.appendChild(b)});
+$("hintBox").classList.add("hidden");$("fbBox").classList.add("hidden");$("btnNext").classList.add("hidden");$("btnHint").disabled=false}
+function showHint(){const q=S.tie?TIE:S.qs[S.idx];$("hintBox").textContent="💡 Dica: "+q.h;$("hintBox").classList.remove("hidden");$("btnHint").disabled=true}
 function pick(i){
 if(S.done)return;S.done=true;const q=S.tie?TIE:S.qs[S.idx],t=S.teams[S.turn];
-document.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add("ok");if(k===i&&k!==q.a)b.classList.add("no");});
+document.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add("ok");if(k===i&&k!==q.a)b.classList.add("no")});
 t.ans++;const fb=$("fbBox");
-if(i===q.a){t.str++;if(t.str>t.max)t.max=t.str;const bon=t.str>=2?20:0;t.pts+=100+bon;t.ok++;fb.style.borderLeftColor="#10b981";fb.innerHTML=`<strong style="color:#34d399">✅ Acertou! +${100+bon} pts ${bon?"(🔥 Combo +20!)":""}</strong><p>💡 ${q.f}</p>`;}
-else{t.str=0;fb.style.borderLeftColor="#f43f5e";fb.innerHTML=`<strong style="color:#fda4af">❌ Errou! Certa: ${"ABCD"[q.a]}</strong><p>💡 ${q.f}</p>`;}
-fb.classList.remove("hidden");$("btnNext").textContent=(!S.tie&&S.idx+1>=S.tot)?"🏆 Ver Vencedor & Balas":"Próxima ➡️";$("btnNext").classList.remove("hidden");updateUI();}
+if(i===q.a){beep(1);t.str++;if(t.str>t.max)t.max=t.str;const bon=t.str>=2?20:0;t.pts+=100+bon;t.ok++;fb.style.borderLeftColor="#10b981";fb.innerHTML=`<strong style="color:#34d399">✅ Certa! +${100+bon} pts ${bon?"(🔥 Combo +20!)":""}</strong><p style="margin-top:3px">📖 ${q.f}</p>`}
+else{beep(0);t.str=0;fb.style.borderLeftColor="#f43f5e";fb.innerHTML=`<strong style="color:#fda4af">❌ Quase! A certa era ${"ABCD"[q.a]}</strong><p style="margin-top:3px">📖 ${q.f}</p>`}
+fb.classList.remove("hidden");$("btnNext").textContent=(!S.tie&&S.idx+1>=S.tot)?"🏆 Ver Vencedor & Balas":"Próxima ➡️";$("btnNext").classList.remove("hidden");updateUI()}
 function next(){
 S.teams[S.turn].mi++;S.turn=1-S.turn;
-if(S.tie){if(S.teams[0].pts!==S.teams[1].pts)return finish();}
-else{S.idx++;if(S.idx>=S.tot){if(S.teams[0].pts===S.teams[1].pts){S.tie=true;renderQ();updateUI();return}return finish();}}
-renderQ();updateUI();}
+if(S.tie){if(S.teams[0].pts!==S.teams[1].pts)return finish()}
+else{S.idx++;if(S.idx>=S.tot){if(S.teams[0].pts===S.teams[1].pts){S.tie=true;renderQ();updateUI();return}return finish()}}
+renderQ();updateUI()}
 function updateUI(){
 $("statBody").innerHTML=S.teams.map(t=>`<tr><td><b style="color:${t.col}">●</b> <b>${t.name}</b></td><td><b style="color:#fbbf24">${t.pts}</b></td><td>${t.ok}/${t.ans}</td><td>${t.ans?Math.round(t.ok/t.ans*100):0}%</td><td>${t.str?"🔥"+t.str:"—"}</td></tr>`).join("");
 const[a,b]=S.teams;$("leadBadge").textContent=a.pts>b.pts?"Líder: "+a.name:b.pts>a.pts?"Líder: "+b.name:"Empate";
 const lead=a.pts>=b.pts?0:1;let totC=0;
-$("candyGrid").innerHTML=S.teams.map((t,idx)=>{const w=idx===lead,per=w?S.cw:S.cr,sub=per*t.m.length;totC+=sub;return `<div class="cb"><div class="sm">${w?"🥇 1º":"🥈 2º"} • ${t.name}</div><div class="val">${per} 🍬 / aluno</div><div class="sm">Grupo: ${sub} balas (${t.m.length})</div></div>`;}).join("");
+$("candyGrid").innerHTML=S.teams.map((t,idx)=>{const w=idx===lead,per=w?S.cw:S.cr,sub=per*t.m.length;totC+=sub;return `<div class="cb"><div class="sm">${w?"🥇 1º Lugar":"🥈 2º Lugar"} • ${t.name}</div><div class="val">${per} 🍬 / aluno</div><div class="sm">Grupo: ${sub} balas (${t.m.length} alunos)</div></div>`}).join("");
 $("totCandy").textContent="Total: "+totC+" balas";
 const cur=S.teams[S.turn],ai=cur.mi%cur.m.length;$("rosTitle").textContent="Rodízio — "+cur.name+":";
-$("rosTags").innerHTML=cur.m.map((m,i)=>`<span class="tag ${i===ai?"act":""}">${i+1}. ${m}</span>`).join("");}
+$("rosTags").innerHTML=cur.m.map((m,i)=>`<span class="tag ${i===ai?"act":""}">${i+1}. ${m}</span>`).join("")}
 function finish(){
-$("scrGame").classList.add("hidden");$("scrWin").classList.remove("hidden");
+beep(1);$("scrGame").classList.add("hidden");$("scrWin").classList.remove("hidden");
 const ord=[...S.teams].sort((x,y)=>y.pts-x.pts);
-$("winTitle").textContent=ord[0].name+" Venceu!";$("winSub").textContent=`Campeões (${ord[0].m.join(", ")}) com ${ord[0].pts} pontos!`;
+$("winTitle").textContent=ord[0].name+" Venceu!";$("winSub").textContent=`Parabéns aos integrantes (${ord[0].m.join(", ")}) pela vitória com ${ord[0].pts} pontos!`;
 $("finStat").innerHTML=ord.map((t,i)=>`<tr><td><b>${i?"🥈 2º":"🥇 1º"} — ${t.name}</b></td><td><b style="color:#fbbf24">${t.pts} pts</b></td><td>${t.ok}/${t.ans}</td><td>${t.ans?Math.round(t.ok/t.ans*100):0}%</td><td>🔥 ${t.max}</td></tr>`).join("");
 let tot=0;
-$("finCandy").innerHTML=ord.map((t,i)=>{const per=i?S.cr:S.cw,sub=per*t.m.length;tot+=sub;return `<div class="cb"><div class="sm">${i?"🥈 Vice":"🥇 Campeão"} • ${t.name}</div><div class="val">${per} balas / aluno</div><div class="sm">Total: <b>${sub} balas</b> (${t.m.join(", ")})</div></div>`;}).join("");
-$("finTotCandy").textContent="Total: "+tot+" balas";}
+$("finCandy").innerHTML=ord.map((t,i)=>{const per=i?S.cr:S.cw,sub=per*t.m.length;tot+=sub;return `<div class="cb"><div class="sm">${i?"🥈 Vice-Campeão":"🥇 Campeão"} • ${t.name}</div><div class="val">${per} balas / integrante</div><div class="sm">Total: <b>${sub} balas</b> (${t.m.join(", ")})</div></div>`}).join("");
+$("finTotCandy").textContent="Total: "+tot+" balas"}
 drawInputs();
 </script>
 </body>
