@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Consciência Negra — Lei nº 10.639/2003</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #121216;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .bg-pattern {
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.12) 0%, transparent 40%);
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.95) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes floatCandy {
+      0%, 100% { transform: translateY(0px) rotate(-4deg); }
+      50% { transform: translateY(-5px) rotate(4deg); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    }
+
+    .animate-pop {
+      animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-candy {
+      display: inline-block;
+      animation: floatCandy 2.6s ease-in-out infinite;
+    }
+
+    .animate-glow {
+      animation: pulseGlow 2.2s infinite;
+    }
+
+    .option-btn {
+      transition: all 0.18s ease;
+    }
+    .option-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+    .option-btn:active:not(:disabled) {
+      transform: translateY(0px);
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body class="bg-pattern min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-zinc-950">
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Cabeçalho Superior Fixo -->
+  <header class="w-full border-b border-zinc-800/90 bg-zinc-950/85 backdrop-blur-md sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-zinc-950 font-display font-bold text-xl shadow-lg">
+          ✊🏿
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              Lei nº 10.639/2003
+            </span>
+            <span class="hidden sm:inline-block text-xs text-zinc-400 font-medium">
+              6º • 7º • 8º Ano
+            </span>
+          </div>
+          <h1 class="font-display text-lg sm:text-xl font-bold text-white leading-tight">
+            Desafio da Consciência Negra
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="btn-github-help" type="button"
+          class="px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
+          <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          <span class="hidden md:inline">Publicar no GitHub</span>
+          <span class="md:hidden">GitHub</span>
+        </button>
+
+        <button id="btn-sound" type="button" aria-label="Alternar efeitos sonoros"
+          class="px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition">
+          <span id="sound-icon">🔊</span>
+          <span id="sound-label" class="hidden sm:inline">Som Ativo</span>
+        </button>
+
+        <button id="btn-reset-game" type="button"
+          class="hidden px-3 py-2 rounded-xl bg-rose-950/70 hover:bg-rose-900/80 border border-rose-700/60 text-rose-200 text-xs sm:text-sm font-semibold transition">
+          Reiniciar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+
+    <!-- TELA 1: CONFIGURAÇÃO DA DISPUTA -->
+    <section id="screen-setup" class="animate-pop space-y-6">
+      <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <div class="max-w-3xl">
+          <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider mb-3">
+            Configuração da Dinâmica em Sala
+          </span>
+          <h2 class="font-display text-2xl sm:text-4xl font-bold text-white leading-tight">
+            Monte os 2 Grupos e a Recompensa em Balas 🍬
+          </h2>
+          <p class="text-zinc-300 mt-2 text-sm sm:text-base leading-relaxed">
+            Divida a turma em <strong>2 equipes de 4 a 6 participantes</strong>. A cada rodada, o jogo faz o rodízio automático entre os integrantes para todo mundo participar!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-7">
+          <!-- Card Grupo 1 -->
+          <div class="bg-zinc-950/90 border-2 border-emerald-600/50 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs uppercase tracking-wider">
+                Equipe 1
+              </span>
+              <div class="flex items-center gap-2">
+                <label for="g1-size" class="text-xs text-zinc-400 font-semibold">Integrantes:</label>
+                <select id="g1-size" class="bg-zinc-900 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-sm font-bold text-white focus:outline-none focus:border-emerald-500">
+                  <option value="4">4 pessoas</option>
+                  <option value="5" selected>5 pessoas</option>
+                  <option value="6">6 pessoas</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="g1-name" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">
+                Nome do Grupo 1
+              </label>
+              <input id="g1-name" type="text" value="Grupo 1 — Palmares" maxlength="28"
+                class="w-full bg-zinc-900 border border-zinc-700 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-white font-bold text-base focus:outline-none" />
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                  Nomes dos Participantes (Opcional)
+                </span>
+                <span class="text-[11px] text-emerald-400">Rodízio automático</span>
+              </div>
+              <div id="g1-members-inputs" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+            </div>
+          </div>
+
+          <!-- Card Grupo 2 -->
+          <div class="bg-zinc-950/90 border-2 border-amber-500/50 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-bold text-xs uppercase tracking-wider">
+                Equipe 2
+              </span>
+              <div class="flex items-center gap-2">
+                <label for="g2-size" class="text-xs text-zinc-400 font-semibold">Integrantes:</label>
+                <select id="g2-size" class="bg-zinc-900 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-sm font-bold text-white focus:outline-none focus:border-amber-500">
+                  <option value="4">4 pessoas</option>
+                  <option value="5" selected>5 pessoas</option>
+                  <option value="6">6 pessoas</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="g2-name" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">
+                Nome do Grupo 2
+              </label>
+              <input id="g2-name" type="text" value="Grupo 2 — Dandara" maxlength="28"
+                class="w-full bg-zinc-900 border border-zinc-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-white font-bold text-base focus:outline-none" />
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                  Nomes dos Participantes (Opcional)
+                </span>
+                <span class="text-[11px] text-amber-400">Rodízio automático</span>
+              </div>
+              <div id="g2-members-inputs" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6 pt-6 border-t border-zinc-800">
+          <!-- Regras da Rodada -->
+          <div class="lg:col-span-5 bg-zinc-950/70 border border-zinc-800 rounded-2xl p-5 space-y-4">
+            <h3 class="font-display text-lg font-bold text-white flex items-center gap-2">
+              <span>⚙️</span> Regras da Partida
+            </h3>
+
+            <div>
+              <label for="total-questions" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                Total de Perguntas (Divididas igualmente)
+              </label>
+              <select id="total-questions" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-amber-500">
+                <option value="10" selected>10 Perguntas (5 para cada grupo)</option>
+                <option value="12">12 Perguntas (6 para cada grupo)</option>
+                <option value="14">14 Perguntas (7 para cada grupo)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="timer-mode" class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+                Tempo para Responder
+              </label>
+              <select id="timer-mode" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-amber-500">
+                <option value="30" selected>30 segundos por pergunta (Recomendado)</option>
+                <option value="45">45 segundos por pergunta</option>
+                <option value="0">Sem cronômetro (Tempo livre)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Configuração da Recompensa em Balas -->
+          <div class="lg:col-span-7 bg-gradient-to-br from-amber-950/40 via-zinc-950 to-orange-950/30 border border-amber-500/40 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <h3 class="font-display text-lg font-bold text-amber-300 flex items-center gap-2">
+                <span class="animate-candy text-xl">🍬</span> Premiação em Balas
+              </h3>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                Exposta o tempo todo no placar
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3">
+                <label for="candy-base" class="block text-xs font-semibold text-zinc-400 mb-1">
+                  🏆 Base Campeão (por aluno)
+                </label>
+                <input id="candy-base" type="number" min="1" max="30" value="5"
+                  class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-1.5 text-lg font-extrabold text-amber-400 focus:outline-none focus:border-amber-500" />
+              </div>
+
+              <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3">
+                <label for="candy-per-hit" class="block text-xs font-semibold text-zinc-400 mb-1">
+                  ⚡ Bônus por Acerto (grupo)
+                </label>
+                <input id="candy-per-hit" type="number" min="0" max="15" value="2"
+                  class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-1.5 text-lg font-extrabold text-emerald-400 focus:outline-none focus:border-emerald-500" />
+              </div>
+
+              <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-3">
+                <label for="candy-runnerup" class="block text-xs font-semibold text-zinc-400 mb-1">
+                  🤝 2º Lugar (por aluno)
+                </label>
+                <input id="candy-runnerup" type="number" min="0" max="20" value="2"
+                  class="w-full bg-zinc-950 border border-zinc-700 rounded-lg px-3 py-1.5 text-lg font-extrabold text-zinc-200 focus:outline-none focus:border-zinc-500" />
+              </div>
+            </div>
+
+            <p id="candy-rule-preview" class="text-xs sm:text-sm text-amber-200/90 bg-amber-500/10 border border-amber-500/20 rounded-xl px-3.5 py-2.5">
+              Regra ativa: Cada integrante do Grupo Campeão ganha <strong>5 balas</strong> + <strong>2 balas extras por acerto</strong> da equipe. O 2º lugar ganha <strong>2 balas</strong> por integrante pela participação!
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-xs text-zinc-400">
+            💡 Dica: Projete esta tela no quadro ou TV da sala antes de clicar em iniciar.
+          </p>
+          <button id="btn-start-game" type="button"
+            class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 hover:from-amber-400 hover:to-orange-400 text-zinc-950 font-display font-extrabold text-lg sm:text-xl shadow-xl shadow-amber-500/20 transition transform hover:scale-[1.02] active:scale-[0.99] flex items-center justify-center gap-3">
+            <span>🚀 Iniciar Quiz em Sala</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 2: ARENA DO QUIZ + PLACAR ESTATÍSTICO + BALAS EXPOSTAS -->
+    <section id="screen-game" class="hidden animate-pop">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- COLUNA ESQUERDA: PALCO DA PERGUNTA -->
+        <div class="lg:col-span-7 space-y-5">
+
+          <div class="bg-zinc-900/95 border border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-lg">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-2.5">
+                <span id="round-badge" class="px-3 py-1 rounded-lg bg-zinc-800 text-zinc-200 font-display font-bold text-xs sm:text-sm">
+                  Rodada 1 de 10
+                </span>
+                <span id="question-topic-badge" class="px-3 py-1 rounded-lg bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold text-xs">
+                  História e Cultura
+                </span>
+              </div>
+
+              <div id="timer-container" class="flex items-center gap-2">
+                <div id="timer-box" class="px-3.5 py-1.5 rounded-xl bg-zinc-950 border border-zinc-700 font-display font-extrabold text-base sm:text-lg text-amber-400 flex items-center gap-2">
+                  <span>⏱️</span>
+                  <span id="timer-display">30s</span>
+                </div>
+                <button id="btn-timer-toggle" type="button" title="Pausar ou continuar tempo"
+                  class="p-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-bold transition">
+                  ⏸️
+                </button>
+              </div>
+            </div>
+
+            <div class="w-full h-2.5 bg-zinc-950 rounded-full overflow-hidden border border-zinc-800">
+              <div id="progress-bar" class="h-full bg-gradient-to-r from-emerald-500 via-amber-500 to-orange-500 transition-all duration-500" style="width: 10%;"></div>
+            </div>
+          </div>
+
+          <div id="turn-banner" class="rounded-2xl p-4 sm:p-5 border-2 transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-emerald-950/40 border-emerald-500/60">
+            <div class="flex items-center gap-3.5">
+              <div id="turn-avatar" class="w-12 h-12 rounded-2xl bg-emerald-500 text-zinc-950 font-display font-extrabold text-xl flex items-center justify-center shrink-0 shadow-md">
+                G1
+              </div>
+              <div>
+                <p id="turn-team-label" class="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  Vez de: Grupo 1 — Palmares
+                </p>
+                <h2 id="turn-member-name" class="font-display text-xl sm:text-2xl font-bold text-white leading-tight">
+                  🎤 Integrante 1
+                </h2>
+              </div>
+            </div>
+            <div class="text-left sm:text-right">
+              <span id="points-worth-badge" class="inline-block px-3 py-1 rounded-xl bg-zinc-950/80 border border-zinc-700/80 text-xs sm:text-sm font-bold text-amber-300">
+                Valendo 100 pts
+              </span>
+            </div>
+          </div>
+
+          <div class="bg-zinc-900/95 border border-zinc-800 rounded-2xl p-5 sm:p-7 shadow-2xl space-y-5">
+            <div class="flex items-start justify-between gap-4">
+              <h3 id="question-text" class="font-display text-xl sm:text-2xl font-bold text-white leading-snug">
+                Carregando pergunta...
+              </h3>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <button id="btn-hint" type="button"
+                class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 text-xs sm:text-sm font-bold flex items-center gap-2 transition">
+                <span>💡</span>
+                <span>Pedir Dica (vale 70 pts)</span>
+              </button>
+              <span class="text-xs text-zinc-400">Clique na alternativa escolhida pelo integrante</span>
+            </div>
+
+            <div id="hint-box" class="hidden rounded-xl bg-amber-950/50 border border-amber-500/40 p-3.5 text-sm text-amber-200">
+              <strong 
